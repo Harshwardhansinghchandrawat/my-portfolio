@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harshwardhan | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    body { font-family: 'Inter', sans-serif; }
+    
+    .hero-bg {
+      background: linear-gradient(135deg, #0A1428 0%, #1E2937 100%);
+    }
+    
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 15px #00D4FF; }
+      50% { box-shadow: 0 0 30px #FF9500; }
+    }
+    
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease forwards; }
+    .animate-glow { animation: glow 2s infinite ease-in-out; }
+    
+    .project-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .project-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.3);
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #00D4FF, #FF9500);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover:after { width: 100%; }
+
+    /* Contact Form Styles */
+    .form-input {
+      transition: all 0.3s ease;
+    }
+    .form-input:focus {
+      border-color: #00D4FF;
+      box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.2);
+      outline: none;
+    }
+    
+    /* Toast Animation */
+    @keyframes toastIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .toast {
+      animation: toastIn 0.4s ease forwards;
+    }
+  </style>
+</head>
+<body class="bg-[#0A1428] text-white overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-[#0A1428]/90 backdrop-blur-lg z-50 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 bg-gradient-to-br from-[#00D4FF] to-[#FF9500] rounded-xl flex items-center justify-center font-bold">H</div>
+        <span class="text-2xl font-semibold tracking-tight">Harshwardhan</span>
+      </div>
+      
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <a href="#" class="px-6 py-3 bg-gradient-to-r from-[#00D4FF] to-[#FF9500] text-black font-semibold rounded-2xl hover:scale-105 transition-transform">
+        Download CV
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8 animate-fade-in-up">
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-sm">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          Available for opportunities
+        </div>
+        
+        <h1 class="text-6xl md:text-7xl font-bold leading-tight">
+          Hi, I'm <span class="bg-gradient-to-r from-[#00D4FF] to-[#FF9500] bg-clip-text text-transparent">Harshwardhan</span>
+        </h1>
+        
+        <p class="text-2xl text-gray-300">
+          Software Engineer &amp; UI/UX Designer from Indore<br>
+          Crafting elegant digital experiences
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects" class="px-8 py-4 bg-[#00D4FF] text-black font-semibold rounded-2xl hover:bg-white transition-colors flex items-center gap-2">
+            View Projects <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="px-8 py-4 border border-white/30 hover:border-white/60 font-medium rounded-2xl transition-colors">
+            Get In Touch
+          </a>
+        </div>
+        
+        <!-- Stats -->
+        <div class="flex gap-10 pt-8">
+          <div>
+            <div class="text-4xl font-bold text-[#00D4FF]">28</div>
+            <div class="text-sm text-gray-400">Projects</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-[#FF9500]">15</div>
+            <div class="text-sm text-gray-400">Happy Clients</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold">4+</div>
+            <div class="text-sm text-gray-400">Years Exp.</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Profile Image -->
+      <div class="flex justify-center md:justify-end animate-fade-in-up" style="animation-delay: 200ms">
+        <div class="relative">
+          <div class="w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden border-8 border-white/10 shadow-2xl animate-glow">
+            <!-- Replace with your real photo URL -->
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQFqEnT6xeVuhg/profile-displayphoto-crop_800_800/B56ZfOemtzH8AM-/0/1751515821262?e=1778112000&v=beta&t=g_4ZaFIvlyKTMxJrFJGb0KeW9DeUCFIzTGIzYFuNNgM" 
+                 alt="Harshwardhan" class="w-full h-full object-cover" >
+          </div>
+          <div class="absolute -bottom-4 -right-4 bg-gradient-to-br from-[#00D4FF] to-[#FF9500] text-black px-6 py-3 rounded-2xl font-semibold shadow-xl">
+            Based in Indore, India
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest">
+      SCROLL TO EXPLORE
+      <div class="w-px h-12 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-[#0F1A2E]">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-16 animate-fade-in-up">About Me</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6 text-lg text-gray-300 animate-fade-in-up">
+          <p>Passionate developer from Indore turning ideas into elegant digital solutions with clean code and beautiful interfaces.</p>
+          <p>I specialize in building scalable web and mobile applications using modern technologies like React, Next.js, Node.js, and Tailwind CSS.</p>
+          <p>When I'm not coding, you'll find me exploring new design trends or contributing to open-source projects.</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 animate-fade-in-up" style="animation-delay: 300ms">
+          <h3 class="text-xl font-semibold mb-6">Quick Facts</h3>
+          <ul class="space-y-4 text-gray-400">
+            <li class="flex items-center gap-3"><i class="fas fa-check text-[#00D4FF]"></i> Full-stack developer</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-[#00D4FF]"></i> UI/UX enthusiast</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-[#00D4FF]"></i> Problem solver</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-[#00D4FF]"></i> Lifelong learner</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-16">Featured Projects</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card 1 -->
+        <div class="project-card bg-[#1E2937] rounded-3xl overflow-hidden group">
+          <div class="h-60 bg-gradient-to-br from-[#00D4FF]/20 to-[#FF9500]/20 flex items-center justify-center">
+            <span class="text-6xl opacity-30 group-hover:opacity-50 transition-opacity">📱</span>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-2">E-Commerce Platform</h3>
+            <p class="text-gray-400 mb-6">Modern online store with seamless checkout and admin dashboard.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-4 py-1 bg-white/10 text-xs rounded-full">React</span>
+              <span class="px-4 py-1 bg-white/10 text-xs rounded-full">Tailwind</span>
+              <span class="px-4 py-1 bg-white/10 text-xs rounded-full">Node.js</span>
+            </div>
+            <div class="mt-6 flex gap-4">
+              <button class="flex-1 py-3 bg-[#00D4FF] text-black rounded-2xl font-medium">Live Demo</button>
+              <button class="flex-1 py-3 border border-white/30 rounded-2xl font-medium">GitHub</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 2 -->
+        <div class="project-card bg-[#1E2937] rounded-3xl overflow-hidden group">
+          <div class="h-60 bg-gradient-to-br from-[#00D4FF]/20 to-[#FF9500]/20 flex items-center justify-center">
+            <span class="text-6xl opacity-30 group-hover:opacity-50 transition-opacity">💼</span>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-2">Task Management App</h3>
+            <p class="text-gray-400 mb-6">Real-time collaborative project management tool with AI suggestions.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-4 py-1 bg-white/10 text-xs rounded-full">Next.js</span>
+              <span class="px-4 py-1 bg-white/10 text-xs rounded-full">TypeScript</span>
+              <span class="px-4 py-1 bg-white/10 text-xs rounded-full">Firebase</span>
+            </div>
+            <div class="mt-6 flex gap-4">
+              <button class="flex-1 py-3 bg-[#00D4FF] text-black rounded-2xl font-medium">Live Demo</button>
+              <button class="flex-1 py-3 border border-white/30 rounded-2xl font-medium">GitHub</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 3 -->
+        <div class="project-card bg-[#1E2937] rounded-3xl overflow-hidden group">
+          <div class="h-60 bg-gradient-to-br from-[#00D4FF]/20 to-[#FF9500]/20 flex items-center justify-center">
+            <span class="text-6xl opacity-30 group-hover:opacity-50 transition-opacity">🎨</span>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-2">Portfolio Builder</h3>
+            <p class="text-gray-400 mb-6">No-code platform to create stunning developer portfolios in minutes.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-4 py-1 bg-white/10 text-xs rounded-full">React</span>
+              <span class="px-4 py-1 bg-white/10 text-xs rounded-full">Figma</span>
+              <span class="px-4 py-1 bg-white/10 text-xs rounded-full">Supabase</span>
+            </div>
+            <div class="mt-6 flex gap-4">
+              <button class="flex-1 py-3 bg-[#00D4FF] text-black rounded-2xl font-medium">Live Demo</button>
+              <button class="flex-1 py-3 border border-white/30 rounded-2xl font-medium">GitHub</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="#" class="inline-flex items-center gap-3 text-[#00D4FF] hover:text-white transition-colors font-medium">
+          View All Projects <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 bg-[#0F1A2E]">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-16">Skills &amp; Technologies</h2>
+      <div class="flex flex-wrap justify-center gap-6">
+        <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all hover:scale-110">React / Next.js</div>
+        <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all hover:scale-110">TypeScript</div>
+        <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all hover:scale-110">Tailwind CSS</div>
+        <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all hover:scale-110">Node.js</div>
+        <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all hover:scale-110">Python</div>
+        <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all hover:scale-110">Figma</div>
+        <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all hover:scale-110">AWS</div>
+        <div class="px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white/20 transition-all hover:scale-110">MongoDB</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with Working Form -->
+  <section id="contact" class="py-24 bg-[#0F1A2E]">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-5xl font-bold mb-4">Let's Build Something Great Together</h2>
+        <p class="text-xl text-gray-400">Open to freelance, full-time roles, or exciting collaborations.<br>Drop me a message and I'll get back to you within 24 hours.</p>
+      </div>
+      
+      <form id="contactForm" class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 space-y-8">
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Name -->
+          <div>
+            <label class="block text-sm font-medium mb-2 text-gray-300">Your Name</label>
+            <input type="text" id="name" name="name" required
+                   class="form-input w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:border-[#00D4FF]">
+          </div>
+          
+          <!-- Email -->
+          <div>
+            <label class="block text-sm font-medium mb-2 text-gray-300">Email Address</label>
+            <input type="email" id="email" name="email" required
+                   class="form-input w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:border-[#00D4FF]">
+          </div>
+        </div>
+        
+        <!-- Subject -->
+        <div>
+          <label class="block text-sm font-medium mb-2 text-gray-300">Subject</label>
+          <input type="text" id="subject" name="subject"
+                 class="form-input w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:border-[#00D4FF]"
+                 placeholder="Freelance Project / Job Opportunity / Collaboration">
+        </div>
+        
+        <!-- Message -->
+        <div>
+          <label class="block text-sm font-medium mb-2 text-gray-300">Your Message</label>
+          <textarea id="message" name="message" rows="6" required
+                    class="form-input w-full bg-white/10 border border-white/20 rounded-3xl px-6 py-4 text-white placeholder-gray-400 focus:border-[#00D4FF] resize-none"></textarea>
+        </div>
+        
+        <button type="submit"
+                class="w-full py-6 bg-gradient-to-r from-[#00D4FF] to-[#FF9500] text-black font-semibold text-xl rounded-3xl hover:scale-105 transition-all flex items-center justify-center gap-3">
+          <span>Send Message</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+        
+        <p class="text-center text-xs text-gray-400">
+          Or email me directly at <a href="mailto:harshwardhan@example.com" class="text-[#00D4FF] hover:underline">harshwardhan@example.com</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Success Toast -->
+  <div id="toast" class="hidden fixed bottom-6 right-6 bg-gradient-to-r from-[#00D4FF] to-[#FF9500] text-black px-8 py-4 rounded-3xl shadow-2xl flex items-center gap-3 toast">
+    <i class="fas fa-check-circle text-2xl"></i>
+    <div>
+      <p class="font-semibold">Message sent successfully! 🎉</p>
+      <p class="text-sm">I'll reply within 24 hours.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-black/50 py-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-500">
+      © 2026 Harshwardhan • Made with ❤️ in Indore, India
+    </div>
+  </footer>
+
+  <script>
+    // Contact Form Handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simulate sending (replace with real backend later)
+      const form = this;
+      const toast = document.getElementById('toast');
+      
+      // Basic validation
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      
+      if (!name || !email || !message) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+      
+      // Show success toast
+      toast.classList.remove('hidden');
+      toast.style.display = 'flex';
+      
+      // Reset form
+      form.reset();
+      
+      // Auto hide toast after 5 seconds
+      setTimeout(() => {
+        toast.style.display = 'none';
+        toast.classList.add('hidden');
+      }, 5000);
+    });
+    
+    // Optional: Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') !== '#') {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
